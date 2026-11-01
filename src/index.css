@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: rgba(226, 232, 240, 0.8);
+  }
+  .dark * {
+    border-color: rgba(30, 41, 59, 0.8);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulseBorder {
+  0%, 100% { border-color: #2563eb; box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+  50% { border-color: #60a5fa; box-shadow: 0 0 0 8px rgba(37, 99, 235, 0); }
+}
+
+@keyframes dashFlow {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-in {
+  animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-dash {
+  stroke-dasharray: 6 4;
+  animation: dashFlow 1s linear infinite;
+}
+
+/* Focus styles */
+button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
